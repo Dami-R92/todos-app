@@ -1,10 +1,12 @@
 import React from 'react'
 
-function TodoItem() {
+function TodoItem(props) {
+  
+
   return (
     <li>
     <span>V</span>
-    <p>Listar tareas necesarias</p>
+    <p>{props.text}</p>
     <span>X</span>
   </li>
   )
