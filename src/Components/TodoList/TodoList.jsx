@@ -4,9 +4,9 @@ import TodoItem from '../TodoItem/TodoItem'
 function TodoList({children}) {
   return (
     
-    <ul>
+    <div>
     {children}
-    </ul>
+    </div>
   )
 }
 
