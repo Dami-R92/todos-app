@@ -2,14 +2,18 @@ import React from 'react'
 import './TodoItem.css'
 
 function TodoItem(props) {
-  
+
 
   return (
-    <div className='todoItem'>
-    <div className="check">V</div>
-    <p className='description'>{props.text}</p>
-    <div className="delete">X</div>
-  </div>
+    <div className={`todoItem${props.completed ? ' todoItem--completed' : ''}`}
+    
+    >
+      <span className={`check${props.completed ? ' check--active' : ''}`} 
+      onClick={props.onComplete}
+      >V</span>
+      <p className={`description${props.completed ? ' description--completed' : ''}`}>{props.text}</p>
+      <span className="delete">X</span>
+    </div>
   )
 }
 
