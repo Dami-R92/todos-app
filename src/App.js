@@ -6,6 +6,7 @@ import TodoSearch from './Components/TodoSearch/TodoSearch';
 import TodoList from './Components/TodoList/TodoList';
 import CreateTodoButton from './Components/CreateTodoButton/CreateTodoButton';
 import { Fragment, useState } from 'react';
+import { json } from 'body-parser';
 
 const defaultTodos = [
 	{ text: 'cortar cebollas', completed: false },
@@ -17,9 +18,17 @@ const defaultTodos = [
 
 ];
 
+// const stringifiedTodos = JSON.stringify(defaultTodos);
+// localStorage.setItem('APP_TODOs_V1',stringifiedTodos );
+// localStorage.removeItem('APP_TODOs_V1');
+
 function App() {
+	const localStorageTodos = localStorage.getItem('APP_TODOs_V1');
+
+	let parsedTodos = JSON.parse(localStorageTodos);
+
 	//Estado de los Todos.
-	const [todos, setTodos] = React.useState(defaultTodos);
+	const [todos, setTodos] = React.useState(parsedTodos);
 
 	//Estado de la busqueda.
 	const [searchValue, setSearchValue] = React.useState('');
