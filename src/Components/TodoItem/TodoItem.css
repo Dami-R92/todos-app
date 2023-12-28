@@ -43,7 +43,7 @@
   align-items: center;
   font-weight: bolder;
   font-size: 24px;
-  color: red;
+  color: rgb(243, 57, 57);
   text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
   cursor: pointer;
 }
@@ -58,4 +58,8 @@
 }
 .description--completed {
   text-decoration: line-through;
+}
+
+FaCheck {
+    /* color: greenyellow; */
 }

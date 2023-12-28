@@ -1,6 +1,9 @@
 import React from 'react'
 import './TodoItem.css'
 
+//Iconos
+import { FaCheck, FaCirclePlus, FaXmark    } from "react-icons/fa6";
+
 function TodoItem(props) {
 
 
@@ -10,9 +13,11 @@ function TodoItem(props) {
     >
       <span className={`check${props.completed ? ' check--active' : ''}`} 
       onClick={props.onComplete}
-      >V</span>
+      ><FaCheck /></span>
       <p className={`description${props.completed ? ' description--completed' : ''}`}>{props.text}</p>
-      <span className="delete">X</span>
+      <span className="delete" 
+      onClick={props.onDelete}
+      ><FaXmark/></span>
     </div>
   )
 }
