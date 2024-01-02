@@ -9,7 +9,9 @@ function CreateTodoButton() {
     <div>
       <button className="css-button css-button-arrow css-button-arrow--green" onClick={(e) => {
         console.log('apretaste un boton');
-      }}> Agregar Tarea...</button>
+      }}> Agregar Tarea <FaCirclePlus/> </button>
+      <FaCirclePlus/>
+
     </div>
   )
 }
