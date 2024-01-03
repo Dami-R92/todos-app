@@ -14,37 +14,44 @@ import { Fragment, useState } from 'react';
 // 	{ text: 'comprar lechuga', completed: true },
 // 	{ text: 'Atornillar el taparrollos', completed: false },
 // 	{ text: 'Comprar Off', completed: false },
-	
+
 // ];
 // const stringifiedTodos = JSON.stringify(defaultTodos);
-// localStorage.setItem('LIST_V1', stringifiedTodos);
-	
-	// localStorage.removeItem('LIST_V1')
+// localStorage.setItem('TODOS_V1', stringifiedTodos);
+
+// localStorage.removeItem(itemName)
+
+function useLocalStorage(itemName, initialValue) {
+	// const stringifiedTodos = JSON.stringify(defaultTodos);
+	// localStorage.setItem(itemName, stringifiedTodos);
+
+	const localStorageItem = localStorage.getItem(itemName);
+
+	let parsedItem;
+	if (!localStorageItem) {
+		localStorage.setItem(itemName, JSON.stringify(initialValue));
+		parsedItem = initialValue;
+	} else {
+		parsedItem = JSON.parse(localStorageItem);
+	}
+
+	const [item, setItem] = useState(parsedItem);
+
+	const saveTodos = (newItem) => {
+		localStorage.setItem(itemName, JSON.stringify(newItem));
+		setItem(newItem);
+	}
+
+	//Retorno mi item, que seria el estado react, y el saveItem para actualizarlo tanto el SetItem dentro de React como en el localStroage.
+	return [item, saveTodos];
+}
 
 function App() {
 
-	// const stringifiedTodos = JSON.stringify(defaultTodos);
-	// localStorage.setItem('LIST_V1', stringifiedTodos);
-
-	const localStorageTodos = localStorage.getItem('LIST_V1');
-
-	let parsedTodos;
-	if(!localStorageTodos) {
-		localStorage.setItem('LIST_V1', JSON.stringify([]));
-	parsedTodos = [];
-	}else {
-		parsedTodos = JSON.parse(localStorageTodos);
-	}
-
-
-
-
 	//Estado de los Todos.
-	const [todos, setTodos] = useState(parsedTodos);
-
+	const [todos, saveTodos] = useLocalStorage('TODOS_V1', []);
 	//Estado de la busqueda.
 	const [searchValue, setSearchValue] = useState('');
-	// console.log('ususarios buscan todos de ' + searchValue);
 
 	const completedTodos = todos.filter((todo) => !!todo.completed).length;
 	const totalTodos = todos.length;
@@ -55,31 +62,25 @@ function App() {
 		return todoText.includes(searcText)
 	});
 
-	const saveTodos = (newTodos) => {
-		localStorage.setItem('LIST_V1', JSON.stringify(newTodos));
-		setTodos(newTodos);
-	}
-
-
-	const completeTodo = (text)=> {
+	const completeTodo = (text) => {
 		const newTodos = [...todos];
-		const todoIndex =  newTodos.findIndex(
-			(todo)=> todo.text === text
-			);
+		const todoIndex = newTodos.findIndex(
+			(todo) => todo.text === text
+		);
 		newTodos[todoIndex].completed = true;
 		saveTodos(newTodos);
 	};
 
-	const deleteTodo = (text)=> {
+	const deleteTodo = (text) => {
 		const newTodos = [...todos];
-		const todoIndex =  newTodos.findIndex(
-			(todo)=> todo.text === text
-			);
-		newTodos.splice(todoIndex,1);
+		const todoIndex = newTodos.findIndex(
+			(todo) => todo.text === text
+		);
+		newTodos.splice(todoIndex, 1);
 		saveTodos(newTodos);
 	};
 
-	
+
 
 	return (
 		<Fragment>
@@ -89,12 +90,12 @@ function App() {
 			/>
 			<TodoList>
 				{searchedTodos.map(todo => (
-					<TodoItem 
-					key={todo.text} 
-					text={todo.text} 
-					completed={todo.completed} 
-					onComplete={()=> completeTodo(todo.text)}
-					onDelete= {()=> deleteTodo(todo.text)}
+					<TodoItem
+						key={todo.text}
+						text={todo.text}
+						completed={todo.completed}
+						onComplete={() => completeTodo(todo.text)}
+						onDelete={() => deleteTodo(todo.text)}
 					/>
 				))}
 			</TodoList>
