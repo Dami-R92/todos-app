@@ -9,17 +9,17 @@ import './App.css';
 function App() {
 
 	//Estado de los Todos.
-	const [todos, saveTodos] = useLocalStorage('TODOS_V1', []);
+	const {item: todos, saveTodos, loading, error} = useLocalStorage('TODOS_V1', []);
 	//Estado de la busqueda.
 	const [searchValue, setSearchValue] = useState('');
 
 	const completedTodos = todos.filter((todo) => !!todo.completed).length;
 	const totalTodos = todos.length;
-
+	
 	const searchedTodos = todos.filter((todo) => {
 		const todoText = todo.text.toLowerCase();
-		const searcText = searchValue.toLowerCase();
-		return todoText.includes(searcText)
+		const searchText = searchValue.toLowerCase();
+		return todoText.includes(searchText)
 	});
 
 	const completeTodo = (text) => {
@@ -49,6 +49,10 @@ function App() {
 			searchedTodos={searchedTodos}
 			completeTodo={completeTodo}
 			deleteTodo={deleteTodo}
+			error={error}
+			loading={loading}
+			// onError={() => console.log('Error')}
+
 		/>
 	);
 }
