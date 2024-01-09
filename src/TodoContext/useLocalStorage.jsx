@@ -44,7 +44,9 @@ function useLocalStorage(itemName, initialValue) {
 		error
 	};
 }
-export default useLocalStorage
+export  {useLocalStorage};
+
+
 // localStorage.removeItem('TODOS_V1')
 
 // const defaultTodos = [

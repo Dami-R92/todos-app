@@ -1,6 +1,9 @@
 import React from 'react'
 import './CreateTodoButton.css'
 
+import { FaCirclePlus  } from "react-icons/fa6";
+
+
 
 function CreateTodoButton() {
 
@@ -8,7 +11,7 @@ function CreateTodoButton() {
     <div>
       <button className="css-button css-button-arrow css-button-arrow--green" onClick={(e) => {
         console.log('apretaste un boton');
-      }}> Agregar Tarea </button>
+      }}> <FaCirclePlus /> </button>
 
     </div>
   )

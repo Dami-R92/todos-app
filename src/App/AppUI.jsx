@@ -6,34 +6,48 @@ import TodoSearch from '../Components/TodoSearch/TodoSearch';
 import TodoList from '../Components/TodoList/TodoList';
 import CreateTodoButton from '../Components/CreateTodoButton/CreateTodoButton';
 
+import EmptyTodos from '../Components/EmptyTodos/EmptyTodos.jsx';
+import TodosError from '../Components/TodosError/TodosError.jsx';
+import TodosLoading from '../Components/TodosLoading/TodosLoading.jsx';
+//Contexto
+import { TodoContext } from '../TodoContext/TodoContext.jsx';
 
-function AppUI({ completedTodos, totalTodos, searchValue, setSearchValue, searchedTodos, completeTodo, deleteTodo, error, loading }) {
-return (
-    <Fragment>
-        <TodoCounter completed={completedTodos} total={totalTodos} />
-        <TodoSearch
-            searchValue={searchValue} setSearchValue={setSearchValue}
-        />
-        <TodoList>
-            {loading && <h1>Cargando...</h1>}
-            {error && <h1>Hubo un error!</h1>}
-            {/* {
-            console.log(loading, error, totalTodos, searchedTodos.length)
-            } */}
-            {(!loading && totalTodos< 1) && <h1>Crea tu primer TODO!</h1>}
-            {(!loading && searchedTodos.length < 1 && totalTodos > 1) && <h1> Parece que no hay coincidencias!</h1>}
-            { searchedTodos.map(todo => (
-                <TodoItem
-                    key={todo.text}
-                    text={todo.text}
-                    completed={todo.completed}
-                    onComplete={() => completeTodo(todo.text)}
-                    onDelete={() => deleteTodo(todo.text)}
-                />
-            ))}
-        </TodoList>
-        <CreateTodoButton />
-    </Fragment>
-);
+
+
+
+function AppUI() {
+
+    const {
+        totalTodos,
+        searchedTodos,
+        completeTodo,
+        deleteTodo,
+        error,
+        loading, } = React.useContext(TodoContext);
+
+    return (
+        <>
+            <TodoCounter />
+            <CreateTodoButton />
+            <TodoSearch />
+
+            <TodoList>
+                {loading && <TodosLoading />}
+                {error && <TodosError />}
+                {(!loading && totalTodos < 1) && <EmptyTodos />}
+                {(!loading && searchedTodos.length < 1 && totalTodos > 1) && <h1> Parece que no hay coincidencias!</h1>}
+                {searchedTodos.map(todo => (
+                    <TodoItem
+                        key={todo.text}
+                        text={todo.text}
+                        completed={todo.completed}
+                        onComplete={() => completeTodo(todo.text)}
+                        onDelete={() => deleteTodo(todo.text)}
+                    />
+                ))}
+            </TodoList>
+
+        </>
+    );
 }
 export default AppUI;

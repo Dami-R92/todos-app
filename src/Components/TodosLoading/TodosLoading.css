@@ -1,0 +1,51 @@
+@keyframes loadingItem {
+  0%, 100% {
+    background: rgba(255, 255, 255, 0.0);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    background: rgba(255, 255, 255, 0.5);
+  }
+}
+
+.loadingItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 0px 0px 0px;
+    height: 45px;
+    margin: 4% 8%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    width: 80%; /* Ancho original del div */
+    animation: loadingItem 0.5s infinite; /* 4 segundos de duración, se repite infinitamente */
+
+  }
+
+  
+  .loadingIcon {
+    width: -webkit-fill-available;
+    text-align: justify;
+    margin-right: 15px;
+    margin-left: 15px;
+    height: 30px;
+    color: rgba(172, 255, 47, 0.664) ;
+    text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.7);
+    animation: loadingIcon 1s linear infinite; /* Duración de 1 segundos, lineal, y se repite infinitamente */
+
+  }
+  
+  @keyframes loadingIcon {
+    0% {
+      transform: rotate(0deg); /* Rotación inicial: 0 grados */
+    }
+    100% {
+      transform: rotate(360deg); /* Rotación final: 360 grados (una vuelta completa) */
+    }
+  }
+
+  
