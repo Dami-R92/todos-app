@@ -8,6 +8,7 @@ function TodoProvider({children}) {
     const { item: todos, saveTodos, loading, error } = useLocalStorage('TODOS_V1', []);
     //Estado de la busqueda.
     const [searchValue, setSearchValue] = useState('');
+    const [openModal, setOpenModal] = useState(false);
 
     const completedTodos = todos.filter((todo) => !!todo.completed).length;
     const totalTodos = todos.length;
@@ -36,7 +37,7 @@ function TodoProvider({children}) {
         saveTodos(newTodos);
     };
     return (
-        <TodoContext.Provider value={{ completedTodos, totalTodos, searchValue, setSearchValue, searchedTodos, completeTodo, deleteTodo, error, loading}}>
+        <TodoContext.Provider value={{ completedTodos, totalTodos, searchValue, setSearchValue, searchedTodos, completeTodo, deleteTodo, error, loading, openModal, setOpenModal}}>
 
             {children}
 

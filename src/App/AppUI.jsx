@@ -5,14 +5,13 @@ import TodoItem from '../Components/TodoItem/TodoItem';
 import TodoSearch from '../Components/TodoSearch/TodoSearch';
 import TodoList from '../Components/TodoList/TodoList';
 import CreateTodoButton from '../Components/CreateTodoButton/CreateTodoButton';
+import Modal from '../Modal/Modal';
 
 import EmptyTodos from '../Components/EmptyTodos/EmptyTodos.jsx';
 import TodosError from '../Components/TodosError/TodosError.jsx';
 import TodosLoading from '../Components/TodosLoading/TodosLoading.jsx';
 //Contexto
 import { TodoContext } from '../TodoContext/TodoContext.jsx';
-
-
 
 
 function AppUI() {
@@ -23,7 +22,10 @@ function AppUI() {
         completeTodo,
         deleteTodo,
         error,
-        loading, } = React.useContext(TodoContext);
+        loading,
+        openModal,
+        setOpenModal,
+    } = React.useContext(TodoContext);
 
     return (
         <>
@@ -46,7 +48,15 @@ function AppUI() {
                     />
                 ))}
             </TodoList>
-
+            {openModal && (
+                <Modal>
+                    La funcionalidad de agregaar la tarea a la lista de tareas
+                    <button onClick={(e) => {
+        setOpenModal(false);
+      }}>Cerrar</button>
+                </Modal>
+            )
+            }
         </>
     );
 }
