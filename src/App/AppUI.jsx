@@ -5,6 +5,7 @@ import TodoItem from '../Components/TodoItem/TodoItem';
 import TodoSearch from '../Components/TodoSearch/TodoSearch';
 import TodoList from '../Components/TodoList/TodoList';
 import CreateTodoButton from '../Components/CreateTodoButton/CreateTodoButton';
+import TodoForm from '../Components/TodoForm/TodoForm.jsx';
 import Modal from '../Modal/Modal';
 
 import EmptyTodos from '../Components/EmptyTodos/EmptyTodos.jsx';
@@ -50,10 +51,8 @@ function AppUI() {
             </TodoList>
             {openModal && (
                 <Modal>
-                    La funcionalidad de agregaar la tarea a la lista de tareas
-                    <button onClick={(e) => {
-        setOpenModal(false);
-      }}>Cerrar</button>
+                    <TodoForm>
+                        </TodoForm>
                 </Modal>
             )
             }
