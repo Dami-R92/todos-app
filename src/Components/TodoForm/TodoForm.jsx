@@ -9,9 +9,8 @@ const TodoForm = () => {
     return (
         <div className="formBackground">
         <form className='newTODOForm'>
-            <h2>Nueva Tarea</h2>
-            <label htmlFor="">Escribe un nuevo TODO</label>
-            <textarea name="" placeholder='Agrega un nuevo Todo aqui ...' id="" cols="30" rows="10"></textarea>
+            <h2>Agrega una nueva tarea</h2>
+            <textarea className='formTextarea' name="" placeholder='Agrega un nuevo Todo aqui ...' id="" cols="30" rows="10"></textarea>
             <div className="buttonFormContainer">
 
             <button onClick={(e) => {

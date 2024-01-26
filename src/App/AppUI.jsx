@@ -30,9 +30,11 @@ function AppUI() {
 
     return (
         <>
+        <section className='triangle'>
             <TodoCounter />
             <CreateTodoButton />
             <TodoSearch />
+        </section>
 
             <TodoList>
                 {loading && <TodosLoading />}

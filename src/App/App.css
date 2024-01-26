@@ -11,7 +11,6 @@
 
 body {
 text-align: -webkit-center;
-background: radial-gradient(circle, rgba(0,88,255,1) 0%, rgba(28,162,226,1) 35%, rgba(198,245,255,1) 100%);
 
 }
 
@@ -43,4 +42,23 @@ background: radial-gradient(circle, rgba(0,88,255,1) 0%, rgba(28,162,226,1) 35%,
   to {
     transform: rotate(360deg);
   }
+}
+
+.triangle {
+  position: relative;
+  background: #2c3e50;
+  height: 20vh;
+}
+
+.triangle::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 25px 25px 0 25px;
+  border-color: #2c3e50 transparent transparent transparent;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%);
 }
