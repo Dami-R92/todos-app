@@ -12,7 +12,7 @@
     overflow: hidden;
     border-radius: 50px;
     border: none;
-    background-color: rgb(159, 236, 42);
+    background-color: #9fd9b3;
     color: white;
     text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
     box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
@@ -27,7 +27,7 @@
   }
 
   .css-button-arrow--green:active {
-    background-color: rgb(111, 167, 28);
+    background-color: #63e793;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     transform: translateY(2px);
   }

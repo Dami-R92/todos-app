@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 .formBackground {
   position: fixed;
@@ -19,32 +18,40 @@
   position: relative;
   align-items: center;
   z-index: 20;
-  background-color: #464345;
+  background: white;
+  border: 1px solid #0054fc;
+	box-shadow: 2px 2px 3px rgba(0,0,0,0.3);
   width: 80%;
   height: 320px;
   padding: 0px 10px;
   top: 10vh;
+  border-radius: 5px;
 }
 .newTODOForm h2 {
-  color: white;
+
+  color: #0066ff;
+  text-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.3);
 }
 
 .formTextarea {
-  font-family: 'Roboto', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
   font-weight: 400;
   padding: 10px;
   font-size: 16px;
   width: 94%;
   height: 150px;
   border: none;
-  border-radius: 2px;
-  background-color: #f8def5 ;
+  color: #003ca3;
+  border-radius: 5px;
+  background-color: #e5eefc; ;
   resize: none; /* Evita que el usuario pueda redimensionar la textarea */
   margin-bottom: 15px;
 }
 .formTextarea:focus {
+  border: 1px solid #0054fc;
   background-color: #fff8fe ;
-  border-color: #888; /* Cambia el color del borde cuando la textarea está seleccionada */
   outline: none; /* Elimina el borde adicional de enfoque */
 }
 
@@ -56,7 +63,6 @@
 }
 
 .cancelButton {
-  font-family: "Roboto", sans-serif;
   font-size: 20px;
   font-weight: 400;
   min-width: 130px;
@@ -70,8 +76,9 @@
   outline: none;
   border-radius: 5px;
   border: none;
-  background: rgb(185, 185, 185);
-  box-shadow: 0 5px grey;
+  background: #f76576;
+  box-shadow: 0 5px rgb(177, 74, 74);
+  text-shadow: #3b3b3b 0.5px 0.5px 1px;
 }
 .cancelButton:hover {
   box-shadow: 0 3px #d90429;
@@ -85,7 +92,6 @@
 }
 
 .confirmButton {
-  font-family: "Roboto", sans-serif;
   font-size: 20px;
   font-weight: 400;
   min-width: 130px;
@@ -99,40 +105,16 @@
   outline: none;
   border-radius: 5px;
   border: none;
-  background: #9fd9b3;
   box-shadow: 0 5px #3ea3af;
+  background: #02daab;
+  text-shadow: #464345 0.5px 0.5px 1px;
 }
 .confirmButton:hover {
-  box-shadow: 0 5px #3ea3af;
-  background: #76e09c;
+  box-shadow: 0 3px #3ea3af;
+  background: #0cd1a6;
   top: 1px;
 }
 .confirmButton:active {
-  box-shadow: 0 5px #3ea3af;
-  top: 5px;
-}
-
-.css-button-3d--green {
-  min-width: 130px;
-  height: 40px;
-  color: #fff;
-  padding: 5px 10px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  display: inline-block;
-  outline: none;
-  border-radius: 5px;
-  border: none;
-  background: #80ed99;
-  box-shadow: 0 5px #57cc99;
-}
-.css-button-3d--green:hover {
-  box-shadow: 0 3px #57cc99;
-  top: 1px;
-}
-.css-button-3d--green:active {
-  box-shadow: 0 0 #57cc99;
+  box-shadow: 0 0 #3ea3af;
   top: 5px;
 }

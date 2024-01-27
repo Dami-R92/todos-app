@@ -12,35 +12,34 @@ font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, O
 }
 
 .input {
-	font-size: 18px;
+	font-size: 16px;
 	padding: 5px 10px;
 	width: 100%;
 	padding-left: 35px;
 	outline: none;
-	background: #ffffffbb;
-	color: #000000;
-	border: 1px solid #c4d1eb00;
+	background: #FFF;
+	color: #003ca3;
+	border: 1px solid #0054fc;
 	border-radius: 5px;
-	box-shadow: 2px 2px 2px 0px #7ca8d4;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 	transition: .3s ease;
 }
 
 .input:focus {
 	background: #FFFF;
-	border: 1px solid #00eeff;
 	border-radius: 25px;
-    text-shadow: none;
 }
 
 .input::placeholder {
-	color: #ffffff;
+	font-size: 14px;
+	color: #83abfa;
     font-weight: 400;
 }
 
 .svg_icon {
 	position: absolute;
 	left: 10px;
-	fill: #0099ff;
+	fill: #0054fc;
 	width: 18px;
 	height: 18px;
 }

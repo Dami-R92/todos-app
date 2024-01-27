@@ -40,7 +40,7 @@ function AppUI() {
                 {loading && <TodosLoading />}
                 {error && <TodosError />}
                 {(!loading && totalTodos < 1) && <EmptyTodos />}
-                {(!loading && searchedTodos.length < 1 && totalTodos > 1) && <h1> Parece que no hay coincidencias!</h1>}
+                {(!loading && searchedTodos.length < 1 && totalTodos > 1) && <h3 className='noMatch'> No se encontraron tareas relacionadas </h3>}
                 {searchedTodos.map(todo => (
                     <TodoItem
                         key={todo.text}
