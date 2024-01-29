@@ -1,23 +1,24 @@
 import React from 'react'
 import './CreateTodoButton.css'
 
-import { FaCirclePlus, FaPlus} from "react-icons/fa6";
+import {  FaPlus, FaXmark} from "react-icons/fa6";
+// import { RxCross2 } from "react-icons/rx";
 
 import { TodoContext } from '../../TodoContext/TodoContext'
 
 
 function CreateTodoButton() {
-  const { setOpenModal } = React.useContext(TodoContext);
+  const { openModal, setOpenModal } = React.useContext(TodoContext);
 
   return (
     <div>
-      <button className="css-button css-button-arrow css-button-arrow--green" onClick={(e) => {
-        setOpenModal(true);
-        console.log('apretaste un boton');
-      }}> <FaPlus/> </button>
+      <button className= {openModal? "css-button css-button-arrow css-button-arrow--red" : "css-button css-button-arrow css-button-arrow--green"} onClick={(e) => {
+        setOpenModal(!openModal);
+      }}> {openModal? <FaXmark/> : <FaPlus/>}
+       </button>
 
     </div>
   )
 }
 
-export default CreateTodoButton
+export default CreateTodoButton;
