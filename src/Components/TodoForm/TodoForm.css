@@ -10,7 +10,7 @@
   left: 0;
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
 }
 .newTODOForm {
   display: flex;
