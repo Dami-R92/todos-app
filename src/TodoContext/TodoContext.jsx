@@ -18,6 +18,14 @@ function TodoProvider({children}) {
         const searchText = searchValue.toLowerCase();
         return todoText.includes(searchText)
     });
+    const addTodo = (text) => {
+        const newTodos = [...todos];
+        newTodos.push({
+            text: text,
+            completed: false,
+        })
+        saveTodos(newTodos);
+    }
 
     const completeTodo = (text) => {
         const newTodos = [...todos];
@@ -36,8 +44,9 @@ function TodoProvider({children}) {
         newTodos.splice(todoIndex, 1);
         saveTodos(newTodos);
     };
+
     return (
-        <TodoContext.Provider value={{ completedTodos, totalTodos, searchValue, setSearchValue, searchedTodos, completeTodo, deleteTodo, error, loading, openModal, setOpenModal}}>
+        <TodoContext.Provider value={{ completedTodos, totalTodos, searchValue, setSearchValue, searchedTodos, completeTodo, deleteTodo, error, loading, openModal, setOpenModal, addTodo}}>
 
             {children}
 

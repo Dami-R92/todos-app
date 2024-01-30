@@ -12,7 +12,6 @@ const {searchValue, setSearchValue} = React.useContext(TodoContext);
       <input className="input" type="text" placeholder='Buscar TO DO...'
         value={searchValue}
         onChange={(e) => {
-          // console.log('escribiste');
           setSearchValue(e.target.value);
 
         }} />
