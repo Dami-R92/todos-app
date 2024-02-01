@@ -18,10 +18,11 @@ function TodoProvider({children}) {
         const searchText = searchValue.toLowerCase();
         return todoText.includes(searchText)
     });
-    const addTodo = (text) => {
+    const addTodo = (text, priority) => {
         const newTodos = [...todos];
         newTodos.push({
             text: text,
+            priority: priority,
             completed: false,
         })
         saveTodos(newTodos);

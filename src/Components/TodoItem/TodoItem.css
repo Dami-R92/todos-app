@@ -76,3 +76,12 @@
 .description--completed {
   text-decoration: line-through;
 }
+.priority{
+  display: flex;
+  justify-content: center;
+  width: 40px;
+  align-items: center;
+  font-weight: bolder;
+  font-size: 24px;
+  margin: 0px 10px 0px 10px;
+}
