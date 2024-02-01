@@ -50,12 +50,11 @@ export  {useLocalStorage};
 // localStorage.removeItem('TODOS_V1')
 
 // const defaultTodos = [
-// 	{ text: 'cortar cebollas', completed: false },
-// 	{ text: 'terminar curso de ReactJS', completed: false },
-// 	{ text: 'comprar panchitos', completed: true },
-// 	{ text: 'comprar lechuga', completed: true },
-// 	{ text: 'Atornillar el taparrollos', completed: false },
-// 	{ text: 'Comprar Off', completed: false },
+// 	{ text: 'cortar cebollas', completed: false, priority: 'Baja' },
+// 	{ text: 'terminar curso de ReactJS', completed: false, priority: 'Alta' },
+// 	{ text: 'comprar panchitos', completed: true, 	priority: 'Media' },
+// 	{ text: 'comprar lechuga', completed: true, 	priority: 'Alta' },
+
 
 // ];
 // const stringifiedTodos = JSON.stringify(defaultTodos);

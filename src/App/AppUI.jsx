@@ -32,26 +32,41 @@ function AppUI() {
         setSearchValue,
         filteredValue,
         setFilteredValue,
+        sortByPriority,
+        sortByCompleted,
+        sortByNonCompleted,
     } = React.useContext(TodoContext);
 
     const priorityOptions = ['Todas','Alta', 'Media', 'Baja' ];
 
     const handleSelectChange = (e) => {
-        // console.log(e.value);
-        // console.log(filteredValue);
         setFilteredValue(e.value);
-        // filteredTodos = searchedTodos.filter(todo => todo.priority === e.value);
-        // console.log(filteredTodos);
     }
-
+    const orderOptions = ['Prioridad','Completas','Incompletas','Fecha' ];
+    const handleOrderChange = (e) => {
+        if(e.value === 'Prioridad'){
+            sortByPriority();
+        } else if ( e.value === 'Completas'){
+            sortByCompleted();
+        } else if (e.value === 'Incompletas'){
+            sortByNonCompleted();
+        }
+    }
 
     return (
         <>
         <section className='triangle'>
             <TodoCounter />
             <CreateTodoButton />
+            <div className="toolsContainer">
             <TodoSearch />
+            <div className="selectToolContainer">
+            <h5>Prioridad: </h5>
             <Select options={priorityOptions.map((priority) => ({ label: priority, value: priority }))} onChange={handleSelectChange} />
+            <h5>Ordenar por: </h5>
+            <Select options={orderOptions.map((order) => ({ label: order, value: order }))} onChange={handleOrderChange}/>
+            </div>
+            </div>
         </section>
 
             <TodoList>
@@ -72,8 +87,7 @@ function AppUI() {
             </TodoList>
             {openModal && (
                 <Modal>
-                    <TodoForm>
-                        </TodoForm>
+                    <TodoForm/>
                 </Modal>
             )
             }

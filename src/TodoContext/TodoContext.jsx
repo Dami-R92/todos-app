@@ -14,6 +14,7 @@ function TodoProvider({children}) {
     const totalTodos = todos.length;
     
     const [filteredValue, setFilteredValue] = useState('Todas');
+
     const searchedTodos = todos.filter((todo) => {
         const todoText = todo.text.toLowerCase();
         const searchText = searchValue.toLowerCase();
@@ -31,20 +32,35 @@ function TodoProvider({children}) {
 
     //! VAriables en edicion
 
+  // Función para ordenar por prioridad
+  const sortByPriority = () => {
+    const sortedTodos = [...todos].sort((a, b) => {
+      // Puedes ajustar la lógica de ordenación según tus necesidades
+      const priorityOrder = { Baja: 3, Media: 2, Alta: 1 };
+      return priorityOrder[a.priority] - priorityOrder[b.priority];
+    });
 
-    // const filteredTodos = todos.filter((todo) => {
-    //     const todoPriority = todo.priority;
-    //     const searchPriority = filteredValue;
-    //     return todoPriority.includes(searchPriority)
-    // });
+    saveTodos(sortedTodos);
+  };
+  const sortByCompleted = () => {
+    const sortedTodos = [...todos].sort((a, b) => {
+      // Puedes ajustar la lógica de ordenación según tus necesidades
+      const completedOrder = { true: 1, false: 2 };
+      return completedOrder[a.completed] - completedOrder[b.completed];
+    });
 
-    // const filteredTodos = ()=> {
-    //     if(filteredValue === 'Todas'){
-    //         return searchedTodos
-    //     }else {
-    //        return searchedTodos.filter(todo => todo.priority === filteredValue);
-    //     }
-    // }
+    saveTodos(sortedTodos);
+  };
+
+  const sortByNonCompleted = () => {
+    const sortedTodos = [...todos].sort((a, b) => {
+      // Puedes ajustar la lógica de ordenación según tus necesidades
+      const completedOrder = { true: 2, false: 1 };
+      return completedOrder[a.completed] - completedOrder[b.completed];
+    });
+
+    saveTodos(sortedTodos);
+  };
 
         //! VAriables en edicion
     const addTodo = (text, priority) => {
@@ -76,7 +92,7 @@ function TodoProvider({children}) {
     };
 
     return (
-        <TodoContext.Provider value={{ completedTodos, totalTodos, searchValue, setSearchValue, searchedTodos, completeTodo, deleteTodo, error, loading, openModal, setOpenModal, addTodo, filteredValue, setFilteredValue}}>
+        <TodoContext.Provider value={{ completedTodos, totalTodos, searchValue, setSearchValue, searchedTodos, completeTodo, deleteTodo, error, loading, openModal, setOpenModal, addTodo, filteredValue, setFilteredValue, sortByPriority, sortByCompleted, sortByNonCompleted}}>
 
             {children}
 

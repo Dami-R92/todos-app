@@ -3,6 +3,7 @@
   justify-content: space-between;
   padding: 0px 0px 0px 0px;
   min-height: 50px;
+  height: auto;
   margin: 4% 8%;
   border: 1px;
   border-style: solid;
@@ -71,6 +72,8 @@
   margin-right: 15px;
   margin-left: 15px;
   color: rgb(42, 45, 54);
+  word-wrap: break-word;
+  word-break: break-all;
   /* text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.3); */
 }
 .description--completed {
@@ -79,7 +82,7 @@
 .priority{
   display: flex;
   justify-content: center;
-  width: 40px;
+  /* width: 40px; */
   align-items: center;
   font-weight: bolder;
   font-size: 24px;

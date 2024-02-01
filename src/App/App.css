@@ -66,3 +66,35 @@ text-align: -webkit-center;
   left: 50%;
   transform: translateX(-50%) translateY(100%);
 } */
+
+.toolsContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  /* background-color: #bd1b43; */
+  padding: 0px 0px 0px 0px;
+  min-height: 50px;
+  margin: 1% 8%;
+  /* width: 85%; */
+}
+.selectToolContainer {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  /* background-color: #585268; */
+
+}
+
+@media screen and (max-width: 50em) {
+  .toolsContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  .selectToolContainer {
+    width: 100%;
+  }
+  
+}
