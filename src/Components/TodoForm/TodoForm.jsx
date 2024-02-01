@@ -10,8 +10,13 @@ const TodoForm = () => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        addTodo(newTODOValue, newTODOPriority);
-        setOpenModal(false);
+        if (newTODOValue.length === 0) {
+            alert('Debes agregar una tarea');
+            return;
+        }else {
+            addTodo(newTODOValue, newTODOPriority);
+            setOpenModal(false);
+        }
     }
     const onCancel = (e) => {
         setOpenModal(false);

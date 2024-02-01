@@ -12,12 +12,41 @@ function TodoProvider({children}) {
 
     const completedTodos = todos.filter((todo) => !!todo.completed).length;
     const totalTodos = todos.length;
-
+    
+    const [filteredValue, setFilteredValue] = useState('Todas');
     const searchedTodos = todos.filter((todo) => {
         const todoText = todo.text.toLowerCase();
         const searchText = searchValue.toLowerCase();
-        return todoText.includes(searchText)
+
+        const todoPriority = todo.priority;
+        const searchPriority = filteredValue;
+        
+        
+        if(filteredValue === 'Todas'){
+            return todoText.includes(searchText)
+        }else {
+           return todoPriority.includes(searchPriority) && todoText.includes(searchText)
+        }
     });
+
+    //! VAriables en edicion
+
+
+    // const filteredTodos = todos.filter((todo) => {
+    //     const todoPriority = todo.priority;
+    //     const searchPriority = filteredValue;
+    //     return todoPriority.includes(searchPriority)
+    // });
+
+    // const filteredTodos = ()=> {
+    //     if(filteredValue === 'Todas'){
+    //         return searchedTodos
+    //     }else {
+    //        return searchedTodos.filter(todo => todo.priority === filteredValue);
+    //     }
+    // }
+
+        //! VAriables en edicion
     const addTodo = (text, priority) => {
         const newTodos = [...todos];
         newTodos.push({
@@ -47,7 +76,7 @@ function TodoProvider({children}) {
     };
 
     return (
-        <TodoContext.Provider value={{ completedTodos, totalTodos, searchValue, setSearchValue, searchedTodos, completeTodo, deleteTodo, error, loading, openModal, setOpenModal, addTodo}}>
+        <TodoContext.Provider value={{ completedTodos, totalTodos, searchValue, setSearchValue, searchedTodos, completeTodo, deleteTodo, error, loading, openModal, setOpenModal, addTodo, filteredValue, setFilteredValue}}>
 
             {children}
 

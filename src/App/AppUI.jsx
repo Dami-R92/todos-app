@@ -14,6 +14,8 @@ import TodosLoading from '../Components/TodosLoading/TodosLoading.jsx';
 //Contexto
 import { TodoContext } from '../TodoContext/TodoContext.jsx';
 
+import Select from 'react-select';
+
 
 function AppUI() {
 
@@ -26,7 +28,22 @@ function AppUI() {
         loading,
         openModal,
         setOpenModal,
+        searchValue,
+        setSearchValue,
+        filteredValue,
+        setFilteredValue,
     } = React.useContext(TodoContext);
+
+    const priorityOptions = ['Todas','Alta', 'Media', 'Baja' ];
+
+    const handleSelectChange = (e) => {
+        // console.log(e.value);
+        // console.log(filteredValue);
+        setFilteredValue(e.value);
+        // filteredTodos = searchedTodos.filter(todo => todo.priority === e.value);
+        // console.log(filteredTodos);
+    }
+
 
     return (
         <>
@@ -34,6 +51,7 @@ function AppUI() {
             <TodoCounter />
             <CreateTodoButton />
             <TodoSearch />
+            <Select options={priorityOptions.map((priority) => ({ label: priority, value: priority }))} onChange={handleSelectChange} />
         </section>
 
             <TodoList>
